@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Matchmaking | The Premier Matchmaking Partnership Platform</title>
+    <meta name="description" content="One Matchmaking partners with elite matchmaking firms across the U.S. to build the nation's leading matchmaking platform. Retain your brand. Gain our resources.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #b8965a;
+            --gold-light: #d4b07a;
+            --navy: #1a1f36;
+            --navy-light: #2d3352;
+            --cream: #f9f6f1;
+            --cream-dark: #efe9df;
+            --text: #3a3a3a;
+            --text-light: #6b6b6b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--white);
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        nav.scrolled {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.3s;
+        }
+
+        nav.scrolled .logo {
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--text);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            transition: background 0.3s;
+        }
+
+        nav.scrolled .hamburger span {
+            background: var(--navy);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(165deg, var(--navy) 0%, var(--navy-light) 50%, #3d4470 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(184,150,90,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(184,150,90,0.4);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(184,150,90,0.3);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--white);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 650px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* ABOUT */
+        .about {
+            background: var(--cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .stat p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+        }
+
+        .about-visual {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 3rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(184,150,90,0.1));
+        }
+
+        .about-visual h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .about-visual ul {
+            list-style: none;
+        }
+
+        .about-visual li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .about-visual li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* WHY PARTNER */
+        .why-partner {
+            background: var(--white);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* LEADERSHIP */
+        .leadership {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .leadership .section-label {
+            color: var(--gold);
+        }
+
+        .leadership .section-title {
+            color: var(--white);
+        }
+
+        .leadership .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .leader-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .leader-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+
+        .leader-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .leader-card .role {
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .leader-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* PROCESS */
+        .process {
+            background: var(--cream);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            right: -1rem;
+            width: calc(100% - 56px);
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.3;
+            transform: translateX(50%);
+        }
+
+        .step-num {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+
+        .step h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .step p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .contact-detail svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+            flex-shrink: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: border-color 0.3s;
+            background: var(--white);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: fit-content;
+        }
+
+        .btn-submit:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(184,150,90,0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* FORM SUCCESS */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-success h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+        }
+
+        .form-success p {
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .about-grid,
+            .contact-grid,
+            .leader-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .step::after {
+                display: none !important;
+            }
+
+            .hero-buttons .btn-outline {
+                margin-left: 0;
+                margin-top: 0.8rem;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+
+            .stat-row {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                color: var(--text) !important;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <a href="#" class="logo">One Matchmaking</a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#why">Why Partner</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">The Future of Matchmaking</div>
+        <h1>Your brand. Your clients.<br>Our <em>platform</em>.</h1>
+        <p>One Matchmaking partners with premier matchmaking firms across the United States to build something none of us could build alone &mdash; the nation's leading matchmaking network.</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-gold">Start a Conversation</a>
+            <a href="#why" class="btn btn-outline">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="section-label">Who We Are</div>
+        <div class="section-title">Built by Operators, Backed by Experience</div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>One Matchmaking is a partnership platform purpose-built for the matchmaking industry. We believe the best matchmakers in America are independent operators &mdash; professionals who've built real businesses on trust, intuition, and relationships.</p>
+                <p>We're not here to replace what works. We're here to give proven matchmakers the operational support, shared resources, and national network they need to reach more clients while staying true to their craft.</p>
+                <p>Backed by seasoned investors with decades of experience in consumer brands, M&amp;A advisory, and scaling service businesses, One Matchmaking brings institutional resources without institutional rigidity.</p>
+                <div class="stat-row">
+                    <div class="stat">
+                        <h3>$2B+</h3>
+                        <p>Industry &amp; Growing</p>
+                    </div>
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Markets Targeted</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Brand Retention</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <h3>The Matchmaking Opportunity</h3>
+                <ul>
+                    <li>Fragmented market of independent operators</li>
+                    <li>No dominant national platform exists</li>
+                    <li>Growing demand for curated, human-led dating</li>
+                    <li>Clients increasingly value privacy over apps</li>
+                    <li>High lifetime value, recurring revenue model</li>
+                    <li>Massive operational leverage through shared systems</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY PARTNER -->
+<section class="why-partner" id="why">
+    <div class="container">
+        <div class="section-label">The Partnership</div>
+        <div class="section-title">What You Gain. What You Keep.</div>
+        <div class="section-subtitle">We're not buying your business to change it. We're joining forces so you can focus on what you do best &mdash; matching people &mdash; while we handle the rest.</div>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Keep Your Brand</h3>
+                <p>Your name, your reputation, your client relationships. We invest in what you've built &mdash; we don't erase it. Your brand stays front and center in your market.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Immediate Liquidity</h3>
+                <p>Take meaningful capital off the table today while retaining equity upside. Our partnership structures are designed for a second bite of the apple when the platform scales.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>National Network</h3>
+                <p>Access a coast-to-coast referral network of elite matchmakers. Cross-market introductions mean more matches, happier clients, and expanded reach beyond your geography.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <h3>Technology &amp; Marketing</h3>
+                <p>From CRM systems to digital marketing and lead generation &mdash; we provide the operational infrastructure that independent firms rarely have the resources to build alone.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3>Operational Support</h3>
+                <p>HR, accounting, compliance, legal &mdash; we handle the back office so you can spend your time on clients, not paperwork. Run your practice, not your admin.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                </div>
+                <h3>Growth Capital</h3>
+                <p>Ready to hire, expand to a new city, or launch a premium tier? Our platform provides the growth capital and strategic guidance to take your practice to the next level.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leadership" id="leadership">
+    <div class="container">
+        <div class="section-label">Leadership</div>
+        <div class="section-title">Experienced Partners, Aligned Incentives</div>
+        <div class="section-subtitle">One Matchmaking is led by a team that has built, scaled, and exited businesses across consumer brands, professional services, and M&amp;A advisory.</div>
+        <div class="leader-cards">
+            <div class="leader-card">
+                <h3>Mitch Berk</h3>
+                <div class="role">Co-Founder &amp; Managing Partner</div>
+                <p>A serial entrepreneur and veteran investor, Mitch served as CEO of Hilco Consumer Capital, the private equity arm behind iconic brands including Polaroid, Sharper Image, and Halston. A pioneer in entertainment marketing and sponsorship, he brings decades of experience scaling consumer-facing businesses and building lasting brand value.</p>
+            </div>
+            <div class="leader-card">
+                <h3>Oberon Partners</h3>
+                <div class="role">Strategic Investment Partner</div>
+                <p>Oberon brings deep expertise in special situations investing, M&amp;A advisory, and scaling service-oriented businesses. With a track record of identifying fragmented markets ripe for consolidation, Oberon provides the strategic capital and operational playbook to build category-defining platforms.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+    <div class="container">
+        <div class="section-label">How It Works</div>
+        <div class="section-title">A Partnership, Not a Transaction</div>
+        <div class="section-subtitle">Our process is designed around respect, transparency, and speed. Most partnerships close within 60&ndash;90 days.</div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Confidential Conversation</h3>
+                <p>A no-obligation call to learn about your business, your goals, and whether there's a mutual fit.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Valuation &amp; Structure</h3>
+                <p>We present a fair, transparent offer tailored to your priorities &mdash; whether that's liquidity, growth, or both.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Seamless Transition</h3>
+                <p>Our team handles integration behind the scenes. Your clients and staff experience continuity, not disruption.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h3>Grow Together</h3>
+                <p>Access the full platform &mdash; referrals, technology, marketing, and capital &mdash; while running your practice your way.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-label">Get In Touch</div>
+        <div class="section-title">Let's Start a Conversation</div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Confidential &amp; No Obligation</h3>
+                <p>Whether you're actively exploring a partnership or simply curious about what your business could be worth within a larger platform, we'd welcome the chance to connect. Every conversation is completely confidential.</p>
+                <div class="contact-detail">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>United States &mdash; Nationwide</span>
+                </div>
+                <div class="contact-detail">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>info@onematchmaking.com</span>
+                </div>
+            </div>
+            <div>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div>
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Jane Smith">
+                        </div>
+                        <div>
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" required placeholder="Your Matchmaking Firm">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                        </div>
+                        <div>
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="location">Primary Market</label>
+                        <input type="text" id="location" name="location" placeholder="e.g. New York, Los Angeles, Chicago">
+                    </div>
+                    <div>
+                        <label for="message">Tell Us About Your Business</label>
+                        <textarea id="message" name="message" placeholder="How long you've been operating, number of clients, what you're looking for in a partnership..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    <h3>Thank You</h3>
+                    <p>We've received your message and will be in touch within 24 hours. All inquiries are kept strictly confidential.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 One Matchmaking. All rights reserved. A partnership between SPGS and Oberon Partners.</p>
+</footer>
+
+<script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Form submission
+    const form = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const body = {};
+        data.forEach((val, key) => body[key] = val);
+
+        // Send via Formspree (replace YOUR_FORM_ID with actual ID after setup)
+        try {
+            const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            if (res.ok) {
+                form.style.display = 'none';
+                formSuccess.classList.add('show');
+            }
+        } catch {
+            // Fallback: mailto
+            const subject = encodeURIComponent('Partnership Inquiry - ' + body.company);
+            const mailBody = encodeURIComponent(
+                `Name: ${body.name}\nCompany: ${body.company}\nEmail: ${body.email}\nPhone: ${body.phone || 'N/A'}\nMarket: ${body.location || 'N/A'}\n\n${body.message}`
+            );
+            window.location.href = `mailto:info@onematchmaking.com?subject=${subject}&body=${mailBody}`;
+        }
+    });
+</script>
+
+</body>
+</html>
