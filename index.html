@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Matchmaking | The Premier Matchmaking Partnership Platform</title>
     <meta name="description" content="One Matchmaking partners with elite matchmaking firms across the U.S. to build the nation's leading matchmaking platform. Retain your brand. Gain our resources.">
+    <link rel="icon" type="image/svg+xml" href="logo-black.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -57,6 +58,9 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.6rem;
             font-weight: 700;
@@ -66,9 +70,20 @@
             transition: color 0.3s;
         }
 
+        .logo img {
+            height: 38px;
+            width: auto;
+        }
+
         nav.scrolled .logo {
             color: var(--navy);
         }
+
+        /* Swap logo color on scroll */
+        .logo .logo-light { display: block; }
+        .logo .logo-dark { display: none; }
+        nav.scrolled .logo .logo-light { display: none; }
+        nav.scrolled .logo .logo-dark { display: block; }
 
         .nav-links {
             display: flex;
@@ -750,7 +765,11 @@
 
 <!-- NAV -->
 <nav id="navbar">
-    <a href="#" class="logo">One Matchmaking</a>
+    <a href="#" class="logo">
+        <img src="logo.svg" alt="One Matchmaking" class="logo-light">
+        <img src="logo-black.svg" alt="One Matchmaking" class="logo-dark">
+        One Matchmaking
+    </a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#why">Why Partner</a></li>
